@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusJoki - Jasa Joki Game Valorant, Genshin, HSR, WuWa & NTE Terpercaya</title>
+    <meta name="description" content="Layanan joki game profesional, murah, cepat, dan 100% aman untuk Valorant, Genshin Impact, Honkai Star Rail, Wuthering Waves, dan Neverness to Everness.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-valorant">
+    <!-- Ambient Background Glows -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon"><i data-lucide="zap"></i></div>
+                <span class="logo-text">NEXUS<span class="highlight">JOKI</span></span>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#games" class="nav-link">Pilih Game</a>
+                <a href="#calculator" class="nav-link">Kalkulator</a>
+                <a href="#packages" class="nav-link">Paket Hemat</a>
+                <a href="#testimonials" class="nav-link">Testimoni</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="https://wa.me/6281234567890?text=Halo%20Admin%20NexusJoki,%20saya%20ingin%20tanya-tanya%20layanan%20joki" target="_blank" class="btn btn-outline btn-sm">
+                    <i data-lucide="message-square"></i> Chat Admin
+                </a>
+                <button class="btn btn-primary btn-sm btn-glow" onclick="scrollToCalculator()">
+                    <i data-lucide="shopping-cart"></i> Pesan Sekarang
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="badge-status">
+                    <span class="live-dot"></span>
+                    <span>100% Anti-Ban Guarantee & Admin Standby 24/7</span>
+                </div>
+                <h1 class="hero-title">
+                    Joki Game Professional <br>
+                    <span class="gradient-text" id="hero-game-title">Valorant & Game Anime</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Naikkan Rank, Cepat Tamatkan Archon Quest, Exploration 100%, & Full Clear Spiral Abyss / MOC dengan joki Player Immortal/Radiant berpengalaman. Garansi aman, garansi waktu, dan garansi kerahasiaan!
+                </p>
+                <div class="hero-cta-group">
+                    <button class="btn btn-primary btn-lg btn-glow" onclick="scrollToCalculator()">
+                        <i data-lucide="calculator"></i> Hitung Harga Joki
+                    </button>
+                    <a href="#packages" class="btn btn-secondary btn-lg">
+                        <i data-lucide="package"></i> Lihat Paket Hemat
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-num">5,400+</span>
+                        <span class="stat-label">Order Selesai</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-num">4.9 / 5</span>
+                        <span class="stat-label">Rating Kepuasan</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-num">100%</span>
+                        <span class="stat-label">Garansi Aman</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="game-preview-card glass-card">
+                    <div class="preview-header">
+                        <div class="game-badge" id="preview-badge">VALORANT</div>
+                        <span class="status-chip"><i data-lucide="shield-check"></i> PRO VERIFIED</span>
+                    </div>
+                    <div class="preview-content">
+                        <div class="rank-display">
+                            <div class="rank-circle glow-circle" id="preview-icon-box">
+                                <i data-lucide="trophy" class="rank-hero-icon"></i>
+                            </div>
+                            <div class="rank-info">
+                                <span class="rank-subtitle">Target Rank Utama</span>
+                                <h3 id="preview-rank-name">Radiant / Radiant Peak</h3>
+                                <div class="rating-stars">
+                                    <i data-lucide="star" class="fill"></i>
+                                    <i data-lucide="star" class="fill"></i>
+                                    <i data-lucide="star" class="fill"></i>
+                                    <i data-lucide="star" class="fill"></i>
+                                    <i data-lucide="star" class="fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature-bullets">
+                            <div class="bullet-item"><i data-lucide="check-circle-2"></i> Pengerjaan Kilat (1-24 Jam)</div>
+                            <div class="bullet-item"><i data-lucide="check-circle-2"></i> Gratis Request Live Stream DC</div>
+                            <div class="bullet-item"><i data-lucide="check-circle-2"></i> Pakai VPN Sesuai Kota Anda</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Selector Tabs Section -->
+    <section id="games" class="games-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">PILIH GAME FAVORITMU</span>
+                <h2 class="section-title">Layanan Tersedia Untuk 5 Game Popular</h2>
+                <p class="section-desc">Pilih game di bawah untuk melihat pricelist dan mengaktifkan kalkulator otomatis.</p>
+            </div>
+
+            <div class="game-tabs-wrapper">
+                <div class="game-tabs">
+                    <button class="game-tab active" data-game="valorant" onclick="selectGame('valorant')">
+                        <div class="tab-icon"><i data-lucide="crosshair"></i></div>
+                        <div class="tab-text">
+                            <span class="tab-title">VALORANT</span>
+                            <span class="tab-sub">Rank & Placement</span>
+                        </div>
+                    </button>
+                    
+                    <button class="game-tab" data-game="genshin" onclick="selectGame('genshin')">
+                        <div class="tab-icon"><i data-lucide="sparkles"></i></div>
+                        <div class="tab-text">
+                            <span class="tab-title">GENSHIN IMPACT</span>
+                            <span class="tab-sub">Exploration & Quest</span>
+                        </div>
+                    </button>
+
+                    <button class="game-tab" data-game="hsr" onclick="selectGame('hsr')">
+                        <div class="tab-icon"><i data-lucide="orbit"></i></div>
+                        <div class="tab-text">
+                            <span class="tab-title">HONKAI: STAR RAIL</span>
+                            <span class="tab-sub">MOC & Trailblaze</span>
+                        </div>
+                    </button>
+
+                    <button class="game-tab" data-game="wuwa" onclick="selectGame('wuwa')">
+                        <div class="tab-icon"><i data-lucide="wind"></i></div>
+                        <div class="tab-text">
+                            <span class="tab-title">WUTHERING WAVES</span>
+                            <span class="tab-sub">Union & Exploration</span>
+                        </div>
+                    </button>
+
+                    <button class="game-tab" data-game="nte" onclick="selectGame('nte')">
+                        <div class="tab-icon"><i data-lucide="zap"></i></div>
+                        <div class="tab-text">
+                            <span class="tab-title">NEVERNESS TO EVERNESS</span>
+                            <span class="tab-sub">Pre-Register / Slot</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section id="calculator" class="calculator-section">
+        <div class="container">
+            <div class="calculator-card glass-card">
+                <div class="calc-header">
+                    <div>
+                        <span class="badge-accent" id="calc-game-badge">VALORANT BOOSTING</span>
+                        <h2 class="calc-title">Kalkulator Estimasi Harga Joki</h2>
+                    </div>
+                    <div class="calc-guarantee">
+                        <i data-lucide="shield-check"></i> Instant Price Guarantee
+                    </div>
+                </div>
+
+                <div class="calc-body-grid">
+                    <!-- Calculator Inputs -->
+                    <div class="calc-inputs">
+                        <div class="service-type-selector" id="service-type-container">
+                            <label class="input-label">Pilih Kategori Layanan:</label>
+                            <div class="radio-pill-group" id="service-types-pills">
+                                <!-- Dynamic Service Pills inserted via JS -->
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Controls Container (Rank selectors or Level selectors) -->
+                        <div class="calc-dynamic-controls" id="calc-controls">
+                            <!-- Injected by JavaScript -->
+                        </div>
+
+                        <!-- Add-ons Section -->
+                        <div class="addons-section">
+                            <label class="input-label">Opsi Tambahan (Add-Ons):</label>
+                            <div class="addons-grid">
+                                <label class="addon-card">
+                                    <input type="checkbox" id="addon-express" onchange="calculatePrice()">
+                                    <div class="addon-content">
+                                        <div class="addon-header">
+                                            <span class="addon-title"><i data-lucide="zap"></i> Proses Express (+25%)</span>
+                                            <span class="addon-badge">2x Lebih Cepat</span>
+                                        </div>
+                                        <p class="addon-desc">Prioritas pengerjaan paling atas oleh Booster Utama.</p>
+                                    </div>
+                                </label>
+
+                                <label class="addon-card">
+                                    <input type="checkbox" id="addon-stream" onchange="calculatePrice()">
+                                    <div class="addon-content">
+                                        <div class="addon-header">
+                                            <span class="addon-title"><i data-lucide="video"></i> Live Stream Discord (+15%)</span>
+                                            <span class="addon-badge">Private Stream</span>
+                                        </div>
+                                        <p class="addon-desc">Tonton live pengerjaan joki di server Discord kami.</p>
+                                    </div>
+                                </label>
+
+                                <label class="addon-card">
+                                    <input type="checkbox" id="addon-agent" onchange="calculatePrice()">
+                                    <div class="addon-content">
+                                        <div class="addon-header">
+                                            <span class="addon-title"><i data-lucide="user-check"></i> Request Agent/Karakter (+10%)</span>
+                                        </div>
+                                        <p class="addon-desc">Bebas tentukan agen/hero yang dimainkan booster.</p>
+                                    </div>
+                                </label>
+
+                                <label class="addon-card">
+                                    <input type="checkbox" id="addon-secret" onchange="calculatePrice()" checked>
+                                    <div class="addon-content">
+                                        <div class="addon-header">
+                                            <span class="addon-title"><i data-lucide="eye-off"></i> Mode Offline/Secret (GRATIS)</span>
+                                            <span class="addon-badge free">GRATIS</span>
+                                        </div>
+                                        <p class="addon-desc">Booster memakai mode offline friend list demi privasi Anda.</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calculator Summary Sidebar -->
+                    <div class="calc-summary">
+                        <div class="summary-box glass-card shadow-glow">
+                            <h3 class="summary-title"><i data-lucide="receipt"></i> Ringkasan Pesanan</h3>
+                            
+                            <div class="summary-details">
+                                <div class="summary-row">
+                                    <span class="row-label">Game</span>
+                                    <span class="row-value highlight-text" id="sum-game">Valorant</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span class="row-label">Layanan</span>
+                                    <span class="row-value" id="sum-service">Rank Boosting</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span class="row-label">Rincian</span>
+                                    <span class="row-value" id="sum-target">Gold 1 ➔ Diamond 1</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span class="row-label">Estimasi Waktu</span>
+                                    <span class="row-value time-tag" id="sum-duration"><i data-lucide="clock"></i> 1 - 2 Hari</span>
+                                </div>
+                                <div class="summary-divider"></div>
+                                <div class="summary-addons-list" id="sum-addons-list">
+                                    <span class="no-addons">Tidak ada add-on dipilih</span>
+                                </div>
+                                <div class="summary-divider"></div>
+                                <div class="price-row">
+                                    <span class="total-label">Total Biaya</span>
+                                    <div class="total-price-group">
+                                        <span class="currency">Rp</span>
+                                        <span class="total-amount" id="sum-price">0</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary btn-block btn-glow btn-lg" onclick="openCheckoutModal()">
+                                <i data-lucide="send"></i> Pesan Sekarang via WhatsApp
+                            </button>
+
+                            <div class="security-notes">
+                                <span><i data-lucide="lock"></i> Data Anda dijamin rapi dan di-encrypt aman.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preset Packages Section -->
+    <section id="packages" class="packages-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">PAKET HEMAT POPULER</span>
+                <h2 class="section-title">Pilihan Paket Best Seller</h2>
+                <p class="section-desc">Hemat lebih banyak dengan paket bundling yang paling sering dipilih gamer.</p>
+            </div>
+
+            <div class="packages-grid" id="packages-grid-container">
+                <!-- Injected via Javascript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">REPUTASI & REVIEWS</span>
+                <h2 class="section-title">Apa Kata Mereka?</h2>
+                <p class="section-desc">Ribuan gamer telah mempercayakan akun mereka kepada tim profesional NexusJoki.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card glass-card">
+                    <div class="testi-header">
+                        <div class="testi-user">
+                            <div class="avatar">R</div>
+                            <div>
+                                <h4 class="user-name">Rian Kurnia</h4>
+                                <span class="user-game"><i data-lucide="crosshair"></i> Valorant (Ascendant 3 ➔ Radiant)</span>
+                            </div>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <p class="testi-text">
+                        "Gokil banget prosessnya cepet banget! Dari Ascendant 3 ke Radiant cuma butuh 1.5 hari. Booster fast response & sempet nonton live stream di Discord ramah banget!"
+                    </p>
+                    <span class="verified-badge"><i data-lucide="check"></i> Verified Buyer</span>
+                </div>
+
+                <div class="testimonial-card glass-card">
+                    <div class="testi-header">
+                        <div class="testi-user">
+                            <div class="avatar alt-color">A</div>
+                            <div>
+                                <h4 class="user-name">Aditya Pratama</h4>
+                                <span class="user-game"><i data-lucide="sparkles"></i> Genshin Impact (Full Natlan 100%)</span>
+                            </div>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <p class="testi-text">
+                        "Sangat puas buat quest Archon + Map Natlan 100%. Chest ga ada yang kelewat, Primogems nambah drastis. Recommended joki Genshin di sini!"
+                    </p>
+                    <span class="verified-badge"><i data-lucide="check"></i> Verified Buyer</span>
+                </div>
+
+                <div class="testimonial-card glass-card">
+                    <div class="testi-header">
+                        <div class="testi-user">
+                            <div class="avatar alt-color-2">K</div>
+                            <div>
+                                <h4 class="user-name">Kevin Sanjaya</h4>
+                                <span class="user-game"><i data-lucide="orbit"></i> HSR (Full Clear MOC 12 & DU)</span>
+                            </div>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <p class="testi-text">
+                        "MOC 12 bintang 36 dapet tanpa kendala meski relic karakter pas-pasan. Booster pinter racik team & rotation. Top banget!"
+                    </p>
+                    <span class="verified-badge"><i data-lucide="check"></i> Verified Buyer</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">PERTANYAAN UMUM</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-desc">Punya pertanyaan seputar keamanan dan mekanisme joki? Temukan jawabannya di sini.</p>
+            </div>
+
+            <div class="faq-accordion-container">
+                <div class="faq-item glass-card active">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Apakah joki di NexusJoki 100% Aman dari Banned?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Ya, 100% Aman! Seluruh booster kami bermain secara murni (Pure Skill) TANPA mengggunakan cheat, script, bot, atau 3rd party software apapun. Kami juga menggunakan VPN lokasi yang disesuaikan dengan domisili kota kamu agar aktivitas login terlihat wajar di server game.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item glass-card">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Bagaimana jika proses joki melebihi estimasi waktu?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Kami memiliki komitmen ketepatan waktu. Jika pengerjaan mengalami keterlambatan yang disebabkan oleh tim kami, Anda berhak mendapatkan garansi cashback hingga 20% atau bonus poin boosting gratis.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item glass-card">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Apakah saya bisa tetap login/bermain saat proses joki berlangsung?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Untuk menghindari bentrok session login, Anda disarankan tidak menabrak login saat booster sedang dalam in-game. Namun jika Anda ingin bermain game lain atau mengobrol dengan admin untuk meminta jeda bermain, Anda bisa menghubungi admin kapan saja!</p>
+                    </div>
+                </div>
+
+                <div class="faq-item glass-card">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Metode pembayaran apa saja yang didukung?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Kami menerima pembayaran melalui QRIS All Payment (Bisa dipindai via GoPay, OVO, DANA, ShopeePay, LinkAja, BCA Mobile) serta Transfer Bank (BCA, Mandiri, BRI, BNI) dan E-Wallet instant.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-icon"><i data-lucide="zap"></i></div>
+                    <span class="logo-text">NEXUS<span class="highlight">JOKI</span></span>
+                </a>
+                <p class="footer-desc">
+                    Pusat layanan joki game terpercaya #1 di Indonesia. Mengedepankan kecepatan, privasi, dan keamanan akun pelanggan.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-btn"><i data-lucide="instagram"></i></a>
+                    <a href="#" class="social-btn"><i data-lucide="message-circle"></i></a>
+                    <a href="#" class="social-btn"><i data-lucide="youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">Navigasi Game</h4>
+                <ul class="footer-links">
+                    <li><a href="javascript:void(0)" onclick="selectGame('valorant')">Valorant Rank Boost</a></li>
+                    <li><a href="javascript:void(0)" onclick="selectGame('genshin')">Genshin Impact Exploration</a></li>
+                    <li><a href="javascript:void(0)" onclick="selectGame('hsr')">Honkai Star Rail MOC</a></li>
+                    <li><a href="javascript:void(0)" onclick="selectGame('wuwa')">Wuthering Waves Union</a></li>
+                    <li><a href="javascript:void(0)" onclick="selectGame('nte')">Neverness to Everness Slot</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">Metode Pembayaran</h4>
+                <div class="payment-methods-icons">
+                    <span class="pay-chip">QRIS</span>
+                    <span class="pay-chip">BCA</span>
+                    <span class="pay-chip">DANA</span>
+                    <span class="pay-chip">GoPay</span>
+                    <span class="pay-chip">OVO</span>
+                    <span class="pay-chip">Mandiri</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom text-center">
+            <div class="container">
+                <p>&copy; 2026 NexusJoki ID. All rights reserved. Not affiliated with Riot Games, HoYoverse, Infold, or Hotta Studio.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Order Modal Checkout -->
+    <div id="checkout-modal" class="modal">
+        <div class="modal-overlay" onclick="closeCheckoutModal()"></div>
+        <div class="modal-card glass-card">
+            <button class="modal-close" onclick="closeCheckoutModal()"><i data-lucide="x"></i></button>
+            <div class="modal-header">
+                <span class="badge-accent"><i data-lucide="send"></i> DIRECT WHATSAPP CHECKOUT</span>
+                <h3>Form Pemesanan Joki</h3>
+                <p>Isi data singkat berikut untuk dihubungkan langsung dengan Admin via WhatsApp.</p>
+            </div>
+
+            <form id="order-form" onsubmit="submitOrder(event)">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Nama Pemesan / Panggilan <span class="req">*</span></label>
+                        <input type="text" id="user-name" class="form-control" placeholder="Contoh: Budi Gunawan" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">ID Game / Username / UID <span class="req">*</span></label>
+                        <input type="text" id="user-game-id" class="form-control" placeholder="Contoh: Player#1234 atau UID 80123456" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Server Game <span class="req">*</span></label>
+                        <select id="user-server" class="form-control" required>
+                            <option value="Asia">Asia</option>
+                            <option value="Indonesia (Valorant AP)">Indonesia (Valorant AP)</option>
+                            <option value="America">America</option>
+                            <option value="Europe">Europe</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Metode Pembayaran Pilihan <span class="req">*</span></label>
+                        <select id="user-payment" class="form-control" required>
+                            <option value="QRIS All Payment (GoPay/DANA/OVO/ShopeePay)">QRIS All Payment (GoPay/DANA/OVO/ShopeePay)</option>
+                            <option value="Transfer Bank BCA">Transfer Bank BCA</option>
+                            <option value="Transfer Bank Mandiri">Transfer Bank Mandiri</option>
+                            <option value="E-Wallet DANA Direct">E-Wallet DANA Direct</option>
+                            <option value="E-Wallet GoPay Direct">E-Wallet GoPay Direct</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label class="form-label">Catatan Khusus (Optional)</label>
+                        <textarea id="user-notes" class="form-control" rows="2" placeholder="Contoh: Tolong main jam 9 malam ke atas, agent favorit Raze / Raiden Shogun..."></textarea>
+                    </div>
+                </div>
+
+                <div class="order-summary-box">
+                    <div class="summary-mini-row">
+                        <span>Pesanan:</span>
+                        <strong id="modal-order-summary-text">-</strong>
+                    </div>
+                    <div class="summary-mini-row">
+                        <span>Total Tagihan:</span>
+                        <strong class="price-green" id="modal-order-price-text">Rp 0</strong>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block btn-glow btn-lg">
+                    <i data-lucide="message-square"></i> Kirim Pesanan via WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Toast for Recent Orders -->
+    <div id="toast-container" class="toast-container">
+        <div class="toast-card glass-card">
+            <div class="toast-icon"><i data-lucide="check-circle-2"></i></div>
+            <div class="toast-body">
+                <div class="toast-title" id="toast-user">Rian (Jakarta) Baru Memesan!</div>
+                <div class="toast-sub" id="toast-detail">Joki Valorant: Diamond 1 ➔ Ascendant 1</div>
+            </div>
+            <span class="toast-time">Baru saja</span>
+        </div>
+    </div>
+
+    <!-- Application Script -->
+    <script src="app.js"></script>
+</body>
+</html>
