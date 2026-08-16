@@ -18,9 +18,20 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="theme-valorant">
+    <!-- Animated Cyber Canvas Background -->
+    <canvas id="cyber-canvas"></canvas>
+
     <!-- Ambient Background Glows -->
     <div class="ambient-glow glow-1"></div>
     <div class="ambient-glow glow-2"></div>
+
+    <!-- Announcement Bar Top -->
+    <div class="announcement-bar">
+        <div class="announcement-content">
+            <span class="announcement-badge"><i data-lucide="sparkles"></i> PROMO SPECIAL</span>
+            <span class="announcement-text">Gunakan Kode Promo <strong class="promo-code-text">NEXUS10</strong> untuk Diskon 10% Semua Layanan Joki!</span>
+        </div>
+    </div>
 
     <!-- Navigation Header -->
     <header class="navbar">
@@ -35,6 +46,7 @@
                 <a href="#games" class="nav-link">Pilih Game</a>
                 <a href="#calculator" class="nav-link">Kalkulator</a>
                 <a href="#packages" class="nav-link">Paket Hemat</a>
+                <a href="#boosters" class="nav-link">Tim Booster</a>
                 <a href="#testimonials" class="nav-link">Testimoni</a>
                 <a href="#faq" class="nav-link">FAQ</a>
             </nav>
@@ -56,7 +68,7 @@
             <div class="hero-content">
                 <div class="badge-status">
                     <span class="live-dot"></span>
-                    <span>100% Anti-Ban Guarantee & Admin Standby 24/7</span>
+                    <span>100% Anti-Ban Guarantee • 18 Booster Live Online</span>
                 </div>
                 <h1 class="hero-title">
                     Joki Game Professional <br>
@@ -87,13 +99,13 @@
                     <div class="stat-divider"></div>
                     <div class="stat-item">
                         <span class="stat-num">100%</span>
-                        <span class="stat-label">Garansi Aman</span>
+                        <span class="stat-label">Garansi Murni</span>
                     </div>
                 </div>
             </div>
 
             <div class="hero-visual">
-                <div class="game-preview-card glass-card">
+                <div class="game-preview-card glass-card floating-card">
                     <div class="preview-header">
                         <div class="game-badge" id="preview-badge">VALORANT</div>
                         <span class="status-chip"><i data-lucide="shield-check"></i> PRO VERIFIED</span>
@@ -184,7 +196,7 @@
     <!-- Calculator Section -->
     <section id="calculator" class="calculator-section">
         <div class="container">
-            <div class="calculator-card glass-card">
+            <div class="calculator-card glass-card glowing-border-card">
                 <div class="calc-header">
                     <div>
                         <span class="badge-accent" id="calc-game-badge">VALORANT BOOSTING</span>
@@ -208,6 +220,18 @@
                         <!-- Dynamic Controls Container (Rank selectors or Level selectors) -->
                         <div class="calc-dynamic-controls" id="calc-controls">
                             <!-- Injected by JavaScript -->
+                        </div>
+
+                        <!-- Visual Rank Progress Bar Indicator -->
+                        <div class="visual-progress-card" id="visual-progress-box">
+                            <div class="progress-labels">
+                                <span class="progress-start" id="prog-start-label">Gold 1</span>
+                                <div class="prog-line-wrapper">
+                                    <div class="prog-line-fill" id="prog-bar-fill"></div>
+                                    <i data-lucide="swords" class="prog-icon"></i>
+                                </div>
+                                <span class="progress-target" id="prog-target-label">Diamond 1</span>
+                            </div>
                         </div>
 
                         <!-- Add-ons Section -->
@@ -258,6 +282,16 @@
                                 </label>
                             </div>
                         </div>
+
+                        <!-- Coupon Code Section -->
+                        <div class="coupon-box">
+                            <label class="input-label">Punya Kode Promo / Kupon?</label>
+                            <div class="coupon-input-group">
+                                <input type="text" id="coupon-input" class="form-control" placeholder="Masukkan Kode (misal: NEXUS10)">
+                                <button class="btn btn-secondary" onclick="applyCoupon()"><i data-lucide="tag"></i> Gantikan</button>
+                            </div>
+                            <span class="coupon-feedback" id="coupon-feedback"></span>
+                        </div>
                     </div>
 
                     <!-- Calculator Summary Sidebar -->
@@ -288,7 +322,10 @@
                                 </div>
                                 <div class="summary-divider"></div>
                                 <div class="price-row">
-                                    <span class="total-label">Total Biaya</span>
+                                    <div>
+                                        <span class="total-label">Total Biaya</span>
+                                        <span class="original-price" id="sum-original-price"></span>
+                                    </div>
                                     <div class="total-price-group">
                                         <span class="currency">Rp</span>
                                         <span class="total-amount" id="sum-price">0</span>
@@ -321,6 +358,55 @@
 
             <div class="packages-grid" id="packages-grid-container">
                 <!-- Injected via Javascript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Pro Booster Roster Section -->
+    <section id="boosters" class="boosters-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">PRO PLAYER TEAM</span>
+                <h2 class="section-title">Tim Booster Berpengalaman</h2>
+                <p class="section-desc">Setiap order dikerjakan oleh pro player pilihan dengan rank tertinggi di server Asia.</p>
+            </div>
+
+            <div class="boosters-grid">
+                <div class="booster-card glass-card">
+                    <div class="booster-status online">● ONLINE</div>
+                    <div class="booster-avatar"><i data-lucide="shield"></i></div>
+                    <h3 class="booster-name">Alpha_Valkyrie</h3>
+                    <span class="booster-game">Valorant Pro</span>
+                    <div class="booster-rank">Peak Rank: Top #45 Radiant</div>
+                    <div class="booster-stats">
+                        <span>Winrate: <strong>88%</strong></span>
+                        <span>Orders: <strong>420+</strong></span>
+                    </div>
+                </div>
+
+                <div class="booster-card glass-card">
+                    <div class="booster-status online">● ONLINE</div>
+                    <div class="booster-avatar alt-avatar-1"><i data-lucide="sparkles"></i></div>
+                    <h3 class="booster-name">Lumine_Speed</h3>
+                    <span class="booster-game">Genshin Specialist</span>
+                    <div class="booster-rank">Natlan 100% Specialist</div>
+                    <div class="booster-stats">
+                        <span>Speed: <strong>3x Fast</strong></span>
+                        <span>Orders: <strong>610+</strong></span>
+                    </div>
+                </div>
+
+                <div class="booster-card glass-card">
+                    <div class="booster-status online">● ONLINE</div>
+                    <div class="booster-avatar alt-avatar-2"><i data-lucide="orbit"></i></div>
+                    <h3 class="booster-name">Astral_Trail</h3>
+                    <span class="booster-game">HSR & WuWa Expert</span>
+                    <div class="booster-rank">MOC 36★ & TOA 30★ Master</div>
+                    <div class="booster-stats">
+                        <span>Success: <strong>100%</strong></span>
+                        <span>Orders: <strong>380+</strong></span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -528,10 +614,10 @@
                         <label class="form-label">Metode Pembayaran Pilihan <span class="req">*</span></label>
                         <select id="user-payment" class="form-control" required>
                             <option value="QRIS All Payment (GoPay/DANA/OVO/ShopeePay)">QRIS All Payment (GoPay/DANA/OVO/ShopeePay)</option>
-                            <option value="Transfer Bank BCA">Transfer Bank BCA</option>
-                            <option value="Transfer Bank Mandiri">Transfer Bank Mandiri</option>
-                            <option value="E-Wallet DANA Direct">E-Wallet DANA Direct</option>
-                            <option value="E-Wallet GoPay Direct">E-Wallet GoPay Direct</option>
+                            <option value="Transfer Bank BCA (1234567890 a.n NexusJoki)">Transfer Bank BCA (1234567890)</option>
+                            <option value="Transfer Bank Mandiri (9876543210 a.n NexusJoki)">Transfer Bank Mandiri (9876543210)</option>
+                            <option value="E-Wallet DANA Direct (081234567890)">E-Wallet DANA Direct (081234567890)</option>
+                            <option value="E-Wallet GoPay Direct (081234567890)">E-Wallet GoPay Direct (081234567890)</option>
                         </select>
                     </div>
 

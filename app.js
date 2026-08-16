@@ -224,6 +224,7 @@ const GAMES_DATA = {
 let currentGame = "valorant";
 let currentServiceType = "rank";
 let calculatedTotal = 0;
+let discountPercent = 0;
 
 /* ==========================================
    GAME SWITCHING & INITIALIZATION
@@ -295,7 +296,6 @@ function renderDynamicControls() {
 
     if (currentGame === "valorant") {
         if (currentServiceType === "rank") {
-            // Rank Start -> Target
             let startOptions = gameData.ranks.map(r => `<option value="${r.id}">${r.name}</option>`).join("");
             let targetOptions = gameData.ranks.map((r, idx) => `<option value="${r.id}" ${idx === 9 ? 'selected' : ''}>${r.name}</option>`).join("");
 
@@ -316,6 +316,7 @@ function renderDynamicControls() {
                     </div>
                 </div>
             `;
+            document.getElementById("visual-progress-box").style.display = "block";
         } else if (currentServiceType === "placement") {
             container.innerHTML = `
                 <div class="range-box">
@@ -326,6 +327,7 @@ function renderDynamicControls() {
                     <input type="range" id="val-placement-qty" class="range-slider" min="1" max="5" value="5" oninput="updatePlacementCount(this.value)">
                 </div>
             `;
+            document.getElementById("visual-progress-box").style.display = "none";
         } else if (currentServiceType === "winrate") {
             container.innerHTML = `
                 <div class="range-box">
@@ -336,8 +338,10 @@ function renderDynamicControls() {
                     <input type="range" id="val-win-qty" class="range-slider" min="1" max="10" value="3" oninput="updateWinCount(this.value)">
                 </div>
             `;
+            document.getElementById("visual-progress-box").style.display = "none";
         }
     } else if (currentGame === "genshin") {
+        document.getElementById("visual-progress-box").style.display = "none";
         if (currentServiceType === "exploration") {
             let options = gameData.regions.map(r => `<option value="${r.price}" data-name="${r.name}" data-time="${r.time}">${r.name} (Rp ${r.price.toLocaleString('id-ID')})</option>`).join("");
             container.innerHTML = `
@@ -381,6 +385,7 @@ function renderDynamicControls() {
             `;
         }
     } else if (currentGame === "hsr") {
+        document.getElementById("visual-progress-box").style.display = "none";
         let options = gameData.hsrTiers.map(t => `<option value="${t.price}" data-name="${t.name}" data-time="${t.time}">${t.name} (Rp ${t.price.toLocaleString('id-ID')})</option>`).join("");
         container.innerHTML = `
             <div class="form-select-box">
@@ -391,6 +396,7 @@ function renderDynamicControls() {
             </div>
         `;
     } else if (currentGame === "wuwa") {
+        document.getElementById("visual-progress-box").style.display = "none";
         let options = gameData.wuwaRegions.map(w => `<option value="${w.price}" data-name="${w.name}" data-time="${w.time}">${w.name} (Rp ${w.price.toLocaleString('id-ID')})</option>`).join("");
         container.innerHTML = `
             <div class="form-select-box">
@@ -403,6 +409,7 @@ function renderDynamicControls() {
             </div>
         `;
     } else if (currentGame === "nte") {
+        document.getElementById("visual-progress-box").style.display = "none";
         let options = gameData.ntePacks.map(n => `<option value="${n.price}" data-name="${n.name}" data-time="${n.time}">${n.name} (Rp ${n.price.toLocaleString('id-ID')})</option>`).join("");
         container.innerHTML = `
             <div class="form-select-box">
@@ -433,6 +440,33 @@ function updateQuestCount(val) {
 }
 
 /* ==========================================
+   COUPON DISCOUNT SYSTEM
+   ========================================== */
+function applyCoupon() {
+    const input = document.getElementById("coupon-input").value.trim().toUpperCase();
+    const feedback = document.getElementById("coupon-feedback");
+
+    if (input === "NEXUS10") {
+        discountPercent = 0.10;
+        feedback.innerText = "✓ Kode NEXUS10 Berhasil! Diskon 10% Diaplikasikan.";
+        feedback.className = "coupon-feedback success";
+    } else if (input === "SULTAN") {
+        discountPercent = 0.15;
+        feedback.innerText = "✓ Kode SULTAN Berhasil! Diskon 15% VIP Diaplikasikan.";
+        feedback.className = "coupon-feedback success";
+    } else if (input === "") {
+        discountPercent = 0;
+        feedback.innerText = "";
+    } else {
+        discountPercent = 0;
+        feedback.innerText = "❌ Kode Promo Tidak Valid atau Sudah Kadaluarsa.";
+        feedback.className = "coupon-feedback error";
+    }
+
+    calculatePrice();
+}
+
+/* ==========================================
    PRICE CALCULATOR ENGINE
    ========================================== */
 function calculatePrice() {
@@ -447,6 +481,15 @@ function calculatePrice() {
             const startVal = parseInt(document.getElementById("val-rank-start")?.value || 1);
             const targetVal = parseInt(document.getElementById("val-rank-target")?.value || 10);
 
+            const startObj = gameData.ranks.find(r => r.id === startVal);
+            const targetObj = gameData.ranks.find(r => r.id === targetVal);
+
+            // Update Progress Bar
+            document.getElementById("prog-start-label").innerText = startObj ? startObj.name : "Start";
+            document.getElementById("prog-target-label").innerText = targetObj ? targetObj.name : "Target";
+            const percent = Math.min(100, Math.max(10, (targetVal / 25) * 100));
+            document.getElementById("prog-bar-fill").style.width = `${percent}%`;
+
             if (targetVal <= startVal) {
                 targetDetailsText = "Rank tujuan harus lebih tinggi dari rank saat ini!";
                 basePrice = 0;
@@ -458,8 +501,6 @@ function calculatePrice() {
                     if (rankObj) cost += rankObj.price;
                 }
                 basePrice = cost;
-                const startObj = gameData.ranks.find(r => r.id === startVal);
-                const targetObj = gameData.ranks.find(r => r.id === targetVal);
                 targetDetailsText = `${startObj.name} ➔ ${targetObj.name}`;
                 
                 const rankDiff = targetVal - startVal;
@@ -509,7 +550,6 @@ function calculatePrice() {
             durationText = opt?.dataset.time || "7 Hari";
         }
     } else {
-        // HSR / WuWa / NTE selects
         const selectId = `${currentGame}-select`;
         const select = document.getElementById(selectId);
         const opt = select?.options[select.selectedIndex];
@@ -536,7 +576,16 @@ function calculatePrice() {
         activeAddonsList.push("👤 Request Agent/Hero (+10%)");
     }
 
-    calculatedTotal = Math.round(basePrice * (1 + addonPercentage));
+    const subtotal = Math.round(basePrice * (1 + addonPercentage));
+
+    if (discountPercent > 0) {
+        calculatedTotal = Math.round(subtotal * (1 - discountPercent));
+        document.getElementById("sum-original-price").innerText = `Rp ${subtotal.toLocaleString('id-ID')}`;
+        activeAddonsList.push(`🎟️ Promo Diskon (-${discountPercent * 100}%)`);
+    } else {
+        calculatedTotal = subtotal;
+        document.getElementById("sum-original-price").innerText = "";
+    }
 
     // Update UI Summary Elements
     document.getElementById("sum-service").innerText = serviceNameText;
@@ -634,8 +683,7 @@ function submitOrder(e) {
     const summaryText = document.getElementById("modal-order-summary-text").innerText;
     const priceText = document.getElementById("modal-order-price-text").innerText;
 
-    // Construct WhatsApp Formatted Message
-    const adminWA = "6281234567890"; // Replace with Admin WA Number
+    const adminWA = "6281234567890";
     const message = `*FORMAT ORDER BARU - NEXUSJOKI* 🎮
 -----------------------------------
 👤 *Nama Pemesan:* ${name}
@@ -653,7 +701,6 @@ function submitOrder(e) {
     const encodedMessage = encodeURIComponent(message);
     const waUrl = `https://wa.me/${adminWA}?text=${encodedMessage}`;
 
-    // Redirect to WhatsApp
     window.open(waUrl, "_blank");
     closeCheckoutModal();
 }
@@ -674,6 +721,75 @@ function toggleFaq(buttonElement) {
 
 function scrollToCalculator() {
     document.getElementById("calculator").scrollIntoView({ behavior: "smooth" });
+}
+
+/* ==========================================
+   CYBER CANVAS PARTICLE BACKGROUND ANIMATION
+   ========================================== */
+function initCyberCanvas() {
+    const canvas = document.getElementById("cyber-canvas");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    window.addEventListener("resize", () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    });
+
+    const particles = [];
+    const particleCount = 45;
+
+    for (let i = 0; i < particleCount; i++) {
+        particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.8,
+            vy: (Math.random() - 0.5) * 0.8,
+            radius: Math.random() * 2 + 1
+        });
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particleCount; i++) {
+            const p = particles[i];
+            p.x += p.vx;
+            p.y += p.vy;
+
+            if (p.x < 0 || p.x > width) p.vx *= -1;
+            if (p.y < 0 || p.y > height) p.vy *= -1;
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
+            ctx.fill();
+
+            // Connect nearby particles with subtle web lines
+            for (let j = i + 1; j < particleCount; j++) {
+                const p2 = particles[j];
+                const dx = p.x - p2.x;
+                const dy = p.y - p2.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < 130) {
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    ctx.strokeStyle = `rgba(255, 255, 255, ${0.15 * (1 - dist / 130)})`;
+                    ctx.lineWidth = 0.6;
+                    ctx.stroke();
+                }
+            }
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
 }
 
 /* ==========================================
@@ -705,11 +821,11 @@ function showNextToast() {
     toastIndex = (toastIndex + 1) % RECENT_ORDERS_MOCK.length;
 }
 
-// Start toast loop every 12 seconds
 setInterval(showNextToast, 12000);
-setTimeout(showNextToast, 3000);
 
 /* Initial Startup */
 document.addEventListener("DOMContentLoaded", () => {
+    initCyberCanvas();
     selectGame("valorant");
+    setTimeout(showNextToast, 3000);
 });
