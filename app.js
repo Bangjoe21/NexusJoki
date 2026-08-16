@@ -287,7 +287,7 @@ function renderServicePills(gameData) {
 }
 
 /* ==========================================
-   DYNAMIC CONTROLS BUILDER (VALORANT / GENSHIN / HSR / WUWA / NTE)
+   DYNAMIC CONTROLS BUILDER
    ========================================== */
 function renderDynamicControls() {
     const container = document.getElementById("calc-controls");
@@ -724,6 +724,26 @@ function scrollToCalculator() {
 }
 
 /* ==========================================
+   AUTO HIDE NAVBAR ON SCROLL DOWN, SHOW ON SCROLL UP
+   ========================================== */
+let lastScrollY = window.scrollY;
+const headerWrapper = document.getElementById("header-wrapper");
+
+window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > 80 && currentScrollY > lastScrollY) {
+        // Scrolling Down -> Hide Header smoothly
+        if (headerWrapper) headerWrapper.classList.add("nav-hidden");
+    } else {
+        // Scrolling Up or near Top -> Reveal Header
+        if (headerWrapper) headerWrapper.classList.remove("nav-hidden");
+    }
+
+    lastScrollY = currentScrollY;
+});
+
+/* ==========================================
    CYBER CANVAS PARTICLE BACKGROUND ANIMATION
    ========================================== */
 function initCyberCanvas() {
@@ -768,7 +788,6 @@ function initCyberCanvas() {
             ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
             ctx.fill();
 
-            // Connect nearby particles with subtle web lines
             for (let j = i + 1; j < particleCount; j++) {
                 const p2 = particles[j];
                 const dx = p.x - p2.x;

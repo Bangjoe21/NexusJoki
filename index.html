@@ -25,41 +25,44 @@
     <div class="ambient-glow glow-1"></div>
     <div class="ambient-glow glow-2"></div>
 
-    <!-- Announcement Bar Top -->
-    <div class="announcement-bar">
-        <div class="announcement-content">
-            <span class="announcement-badge"><i data-lucide="sparkles"></i> PROMO SPECIAL</span>
-            <span class="announcement-text">Gunakan Kode Promo <strong class="promo-code-text">NEXUS10</strong> untuk Diskon 10% Semua Layanan Joki!</span>
-        </div>
-    </div>
-
-    <!-- Navigation Header -->
-    <header class="navbar">
-        <div class="container nav-container">
-            <a href="#" class="logo">
-                <div class="logo-icon"><i data-lucide="zap"></i></div>
-                <span class="logo-text">NEXUS<span class="highlight">JOKI</span></span>
-            </a>
-            
-            <nav class="nav-links">
-                <a href="#hero" class="nav-link active">Home</a>
-                <a href="#games" class="nav-link">Pilih Game</a>
-                <a href="#calculator" class="nav-link">Kalkulator</a>
-                <a href="#packages" class="nav-link">Paket Hemat</a>
-                <a href="#boosters" class="nav-link">Tim Booster</a>
-                <a href="#testimonials" class="nav-link">Testimoni</a>
-                <a href="#faq" class="nav-link">FAQ</a>
-            </nav>
-
-            <div class="nav-actions">
-                <a href="https://wa.me/6281234567890?text=Halo%20Admin%20NexusJoki,%20saya%20ingin%20tanya-tanya%20layanan%20joki" target="_blank" class="btn btn-outline btn-sm">
-                    <i data-lucide="message-square"></i> Chat Admin
-                </a>
-                <button class="btn btn-primary btn-sm btn-glow" onclick="scrollToCalculator()">
-                    <i data-lucide="shopping-cart"></i> Pesan Sekarang
-                </button>
+    <!-- Header Wrapper (Announcement Bar + Navbar with Auto-Hide on Scroll) -->
+    <header class="header-wrapper" id="header-wrapper">
+        <!-- Top Announcement Bar -->
+        <div class="announcement-bar">
+            <div class="announcement-content">
+                <span class="announcement-badge"><i data-lucide="sparkles"></i> PROMO SPECIAL</span>
+                <span class="announcement-text">Gunakan Kode Promo <strong class="promo-code-text">NEXUS10</strong> untuk Diskon 10% Semua Layanan Joki!</span>
             </div>
         </div>
+
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="container nav-container">
+                <a href="#" class="logo">
+                    <div class="logo-icon"><i data-lucide="zap"></i></div>
+                    <span class="logo-text">NEXUS<span class="highlight">JOKI</span></span>
+                </a>
+                
+                <div class="nav-links">
+                    <a href="#hero" class="nav-link active">Home</a>
+                    <a href="#games" class="nav-link">Pilih Game</a>
+                    <a href="#calculator" class="nav-link">Kalkulator</a>
+                    <a href="#packages" class="nav-link">Paket Hemat</a>
+                    <a href="#boosters" class="nav-link">Tim Booster</a>
+                    <a href="#testimonials" class="nav-link">Testimoni</a>
+                    <a href="#faq" class="nav-link">FAQ</a>
+                </div>
+
+                <div class="nav-actions">
+                    <a href="https://wa.me/6281234567890?text=Halo%20Admin%20NexusJoki,%20saya%20ingin%20tanya-tanya%20layanan%20joki" target="_blank" class="btn btn-outline btn-sm">
+                        <i data-lucide="message-square"></i> Chat Admin
+                    </a>
+                    <button class="btn btn-primary btn-sm btn-glow" onclick="scrollToCalculator()">
+                        <i data-lucide="shopping-cart"></i> Pesan Sekarang
+                    </button>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <!-- Hero Section -->
